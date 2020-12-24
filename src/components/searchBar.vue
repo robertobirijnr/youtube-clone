@@ -15,6 +15,13 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+    input{
+        width: 75%;
+    }
 
+    div{
+        text-align: center;
+        margin: 25px;
+    }
 </style>

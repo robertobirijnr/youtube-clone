@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li class="list-group-item">
         {{videoItem.snippet.title}}
     </li>
 </template>
