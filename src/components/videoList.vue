@@ -4,6 +4,7 @@
             <video-list-item v-for="video in vidoeList" 
             :key="video.etag"
             :videoItem="video"
+            @videoSelect="viewVideoDetail"
             />
         </ul>
         
@@ -19,6 +20,11 @@ import videoListItem from './videoListItem.vue'
             vidoeList:{
                 type:Array,
                 required:true
+            }
+        },
+        methods:{
+            viewVideoDetail(vidoeList){
+                this.$emit('videoSelect',vidoeList)
             }
         }
     }
