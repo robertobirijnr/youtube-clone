@@ -1,12 +1,14 @@
 <template>
   <div class="home">
     <search-bar @termChange="onTermChange"/>  
+    <video-list :vidoeList="videos"/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import SearchBar from '../components/searchBar.vue'
+import VideoList from '../components/videoList.vue';
 // @ is an alias to /src
 
 const API_KEY = 'AIzaSyB-AUC3gvo-cDatZVS1dMKeyDDgKA9EstE';
@@ -14,8 +16,14 @@ const API_KEY = 'AIzaSyB-AUC3gvo-cDatZVS1dMKeyDDgKA9EstE';
 export default {
   name: 'Home',
   components: {
-    SearchBar
+    SearchBar,
+    VideoList
     
+  },
+  data() {
+    return {
+      videos: []
+    }
   },
   methods:{
     onTermChange(searchTerm){
@@ -27,6 +35,7 @@ export default {
         q:searchTerm
         }
       }).then(response=>{
+        this.videos = response.data.items
         console.log(response)
       })
     }
