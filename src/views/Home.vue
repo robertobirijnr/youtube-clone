@@ -1,10 +1,12 @@
 <template>
   <div class="container">
-    <search-bar @termChange="onTermChange"/>  
+    <search-bar @termChange="onTermChange"/> 
+     <video-detail :video="selectedVideo"/> 
     <video-list
      :vidoeList="videos"
      @videoSelect="videoSelected"
      />
+    
   </div>
 </template>
 
@@ -12,24 +14,28 @@
 import axios from 'axios'
 import SearchBar from '../components/searchBar.vue'
 import VideoList from '../components/videoList.vue';
+import VideoDetail from '../components/videoDetail.vue';
 // @ is an alias to /src
 
-const API_KEY = 'AIzaSyB-AUC3gvo-cDatZVS1dMKeyDDgKA9EstE';
+const API_KEY = 'AIzaSyBudXzFUR-EtTGPEIvWsio2lq1VvIulR6A';
 
 export default {
   name: 'Home',
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetail
     
   },
   data() {
     return {
-      videos: []
+      videos: [],
+      selectedVideo:null
     }
   },
   methods:{
     videoSelected(video){
+      this.selectedVideo = video;
       console.log(video)
     },
     onTermChange(searchTerm){
