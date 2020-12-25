@@ -1,14 +1,11 @@
 <template>
-    <div>
-        <ul class="list-group">
+        <ul class="list-group col-md-4">
             <video-list-item v-for="video in vidoeList" 
             :key="video.etag"
             :videoItem="video"
             @videoSelect="viewVideoDetail"
             />
         </ul>
-        
-    </div>
 </template>
 
 <script>
